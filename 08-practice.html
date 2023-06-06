@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			//8a-8g.
+			const product = {
+				name: 'basketball',
+				price: 2095,
+				['deliver-time']: '3 days',
+			};
+			console.log(product);
+
+			console.log((product.price += 500));
+
+			const Item1 = {
+				name: 'basketball',
+				price: 2095,
+			};
+
+			const Item2 = {
+				name: 'Flag',
+				price: 795,
+			};
+
+			function lowerPriceDecider(product1, product2) {
+				if (product1.price < product2.price) {
+					return product1;
+				} else {
+					return product2;
+				}
+			}
+			console.log(lowerPriceDecider(Item1, Item2));
+
+			function isSameProduct(product1, product2) {
+				if (
+					product1.name === product2.name &&
+					product1.price === product2.price
+				) {
+					return true;
+				} else {
+					return false;
+				}
+			}
+
+			console.log(isSameProduct(Item1, Item2));
+
+			let str = 'GOOD MORNING!';
+			let lowerCaseStr = str.toLowerCase();
+			let repeatedStr = lowerCaseStr.repeat(2);
+			console.log(lowerCaseStr);
+			console.log(repeatedStr);
+		</script>
+	</body>
+</html>

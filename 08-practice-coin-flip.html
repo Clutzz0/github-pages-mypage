@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<!-- <p>
+			<button
+				onclick="
+      const randomNumber = Math.random();
+
+      let result = '';
+
+			if (randomNumber >= 0 && randomNumber < 1 / 2) {
+				result = 'heads';
+			} else {
+				result = 'tails';
+			}
+
+      console.log(result)
+    ">
+				Coin Flip
+			</button>
+
+			<button
+				onclick="
+      const randomNumberH = Math.random();
+
+      let resultH = '';
+
+      if (randomNumberH >= 0 && randomNumberH < 1 / 2) {
+				resultH = 'heads';
+			} else {
+				resultH = 'tails';
+			}
+
+      if (resultH === 'heads') {
+        console.log('You win.')
+      } else {
+        console.log('You lose.')
+      }
+    ">
+				I choose Heads
+			</button>
+			<button
+				onclick="
+      // const randomNumberT = Math.random();
+
+      // let resultT = '';
+
+      // if (randomNumberT >= 0 && randomNumberT < 1 / 2) {
+			// 	resultT = 'heads';
+			// } else {
+			// 	resultT = 'tails';
+			// }
+
+      // if (resultT === 'heads') {
+      //   console.log('You win.')
+      // } else {
+      //   console.log('You lose.')
+      // }
+
+      const randomNumberT = Math.random();
+
+      let resultT = randomNumberT >= 0 && randomNumberT < 1/2 ? 'heads' : 'tails';
+      console.log(resultT === 'heads' ? 'You win.' : 'You lose.')
+    ">
+				I choose Tails
+			</button>
+		</p> -->
+		<p>
+			<button
+				onclick="
+				playGame('heads')
+				">
+				Heads
+			</button>
+			<button
+				onclick="
+				playGame('tails')
+				">
+				Tails
+			</button>
+		</p>
+		<script>
+			let score = JSON.parse(localStorage.getItem('score')) || {
+				wins: 0,
+				losses: 0,
+			};
+
+			function playGame(guess) {
+				const randomNumber = Math.random();
+
+				let result = '';
+
+				if (randomNumber >= 0 && randomNumber < 1 / 2) {
+					result = 'heads';
+				} else {
+					result = 'tails';
+				}
+
+				if (guess === 'heads') {
+					if (result === 'heads') {
+						console.log('You Guessed Right');
+						score.wins++;
+						console.log(score);
+					} else {
+						console.log('You Guessed Wrong');
+						score.losses++;
+						console.log(score);
+					}
+				} else {
+					if (result === 'heads') {
+						console.log('You Guessed Wrong');
+						score.losses++;
+						console.log(score);
+					} else {
+						console.log('You Guessed Right');
+						score.wins++;
+						console.log(score);
+					}
+				}
+
+				localStorage.setItem('score', JSON.stringify(score));
+			}
+		</script>
+	</body>
+</html>

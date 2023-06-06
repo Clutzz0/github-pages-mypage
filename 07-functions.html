@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Functions</title>
+	</head>
+	<body>
+		<script>
+			//Functions lets us reuse code
+			function function1() {
+				console.log('hello');
+				console.log(2 + 2);
+			}
+			//The code inside the {} in functions is called the function body
+			//When creating a function it wont run the code until you call it like below
+
+			//The code will run as many times as you call the function
+			function1();
+			function1();
+			//Since the same code is being called by the function, we can update the code through out the page much easier
+
+			//Parameters
+			//The oposite of a return statement, while a return statment returns a value when called parameters lets us isert values into the code
+			function calculateTax1(num) {
+				console.log(num * 0.1);
+			}
+
+			calculateTax1(2000);
+			calculateTax1(5000);
+			//Same syntax as variables
+			//Functions can have more than one parameter by having a comma seperating the names
+			function calculateTax2(cost, taxPercent = 0.1) {
+				console.log(cost * taxPercent);
+			}
+
+			calculateTax2(2000, 0.2);
+			calculateTax2(5000);
+		</script>
+	</body>
+</html>

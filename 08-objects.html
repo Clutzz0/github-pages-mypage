@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Objects</title>
+	</head>
+	<body>
+		<script>
+			//An object groups multiple values together
+			const product = {
+				name: 'socks',
+				price: 1090,
+			};
+			console.log(product);
+			//By placing the property in front of the object name we can manipulate the value of the property, this is called dot notation
+			console.log(product.name /*dot notation*/);
+			console.log(product.price);
+
+			//by just jusing the name of object and one of the properties like a variable we can change the value inside of the property.
+			product.name = 'cotton socks';
+			console.log(product.name);
+
+			//We can add new values to objects
+			product.newProperty = true;
+			console.log(product);
+
+			//We can subtract values from objects
+			delete product.newProperty;
+			console.log(product);
+
+			//We can see the typeof product is an object in the console
+			console.log(typeof product);
+
+			//Objects lets us group multiple values together so we can use them together
+
+			const product2 = {
+				name: 'shirt',
+				//Just like notation we use brackets to form properties we normally couldnt, like when the code thinks we are trying to do math with the -
+				//If there is only one string in the brackets the brackets are optional but they are needed when calling it below with console.log
+				['delivery-time']: '1 day',
+				'rest-time': '3 days',
+				// We dont have to use strings for values, we can use anything that will result in a value, ex. calculations, variables, numbers and even other objects since theyre values
+				rating: {
+					starts: 4.5,
+					count: 87,
+				},
+				fun: function function1() {
+					console.log('funcion inside object');
+				},
+			};
+			console.log(product2);
+			console.log(product2.name);
+			//Bracket notation [''] lets us properties that normally dont work with dot notation
+			console.log(product2['name']);
+			//As we can see the dash dosent work with dot notation because it thinks we are doing subtraction so we have to use bracket notation in this case
+			//	console.log(product2.deliver - time); // Commenting out because of error
+			console.log(product2['delivery-time']);
+			console.log(product2['rest-time']);
+			//By default use dot.notation because its easier to write/read
+
+			console.log(product2.rating.count);
+			//When defining a function within an object we cant use the function unless we notation it with the object name
+			//When saving functions insde an object, thats called a Method
+			product2.fun();
+			// fun(); // Commenting out because of error
+
+			// As we can see console is an object, log is a function, and both together (console.log) would be a method.
+			console.log(typeof console);
+			console.log(typeof console.log);
+
+			//Built in objects are objects that JS has already provided for you ex. console, Math, JSON, and localStorage
+			//JSON - JavaScript Object Notation is a syntax that works like a JS object with less features.
+			/*{
+				"name": "shirt",
+				"deliver-time": "1 day",
+				"rating": {
+					"stars": 4.5,
+					"count": 87,
+				},
+			}*/ // Commenting out because of error
+			//This is how a JSON would be written out, it must have double quotes as single quotes arent supported, and it does not support functions either.
+			//While objects are unique to JS, JSON is universal and is used to store objects that diffrent languages can read.
+			//Best used when transferring data between different computers, and storing data in case we need to open the data with a different language.
+
+			//The built in JSON object in JS lets us convert a JS object to JSON
+			console.log(JSON.stringify(product2));
+			//As we can see we turned the object into a JSON and lost the function inside our object since JSON dosent support it
+			//If you typeof a JSON.stringify, we see that it is saved as a string
+			console.log(typeof JSON.stringify(product2));
+
+			//To convert a JSON to a JS object we use JSON.pasre()
+			const jsonString = JSON.stringify(product2);
+			console.log(JSON.parse(jsonString));
+
+			//Another built-in object localStorage lets us save values more permenently
+			//So far we've been saving values in variables which are temporary
+
+			//While null and undefined are both used to signify that there is no value, null signifies that it is intentional
+
+			//Values besides objects can have properties and methods
+			//.length is a property of string that counts the characters of the string
+			console.log('hello'.length);
+			//.toUpperCase method will turn all the characters in the string into uppercase
+			console.log('hello'.toUpperCase());
+			//This is possible with JS auto-boxing which wraps the string in a special object we cant see
+			//Auto-boxing works with other values like numbers and booleans, but not undefined or null
+
+			//Objects are refrences when we create an object the values inside of the variable is stored in the computer memory, and the variable just calls for the info
+			const object1 = {
+				message: 'hello',
+			};
+			//This helps when we want to store the variable in a diffrent variable, instead of copying the whole code over, we just copy the reffrence, and object2 will go to the same place object1 goes to grab the code
+			object2 = object1;
+
+			//Since we are using refrences, we can change the values inside an object, even if the object was defined with const because we are changing the content, not where the const is going
+			object1.message = 'Good Job';
+			console.log(object1);
+			//Since we gave object2 the same refrence as object1, they will both display Good Job since they grab from the same place
+			console.log(object2);
+
+			//Even tho we gave object3 and object1 the same values, when we use the === operator we check there refrences and not the values so it returns false since they are reaching differnt destinations
+			const object3 = {
+				message: 'Good Job',
+			};
+			console.log(object3 === object1);
+			console.log(object2 === object1);
+			//To see if the values equal we must do it manually by checking each property to each other
+			console.log(object3.message === object1.message);
+
+			const object4 = {
+				message: 'Good Job',
+				price: 799,
+			};
+
+			//To remove a property and value out of an object we can use dot notation (method1) or destructuring (method2), with destructuring we can add multiple properties to the value, and call them each individually
+			// const message = object4.message; // Commenting out because of error
+			const { message, price } = object4;
+			console.log(message, price);
+
+			const object5 = {
+				// if both the property and the value are equal we use the shorthand property
+				// message: message, // Commenting out because of error
+				message,
+				//Just like properties, we can use shorthand method to shorten it down
+				/*method: function function1() {
+					console.log('method');
+				},*/ // Commenting out because of error
+				method() {
+					console.log('method');
+				},
+			};
+			console.log(object5);
+			object5.method();
+		</script>
+	</body>
+</html>

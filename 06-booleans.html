@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Booleans</title>
+	</head>
+	<body>
+		<script>
+			// true and false are boolean values, another datatype in JS
+			true;
+			false;
+
+			console.log(3 > 5);
+
+			// == will convert both sides to the same type ex. all numbers or all strings, while === will only produce true if they are the same type and equal
+			console.log(5 == '5.00');
+			console.log(5 === '5.00');
+
+			//the minus sign and all operational signs ((), +, -, *, /) take precedence over the comparison signs (>, <, ===, ==, !===)
+			console.log(3 > 5 - 5);
+
+			//If statements lets us write groups of code then decide which code we run
+			//In if statements if the value in the () is true, then we run our code, otherwise we run the code in the else statement, or no code if there isnt an else statement
+			if (false) {
+				console.log('hello');
+			} else {
+				console.log('else');
+			}
+
+			if (15 >= 16) {
+				console.log('You can drive');
+			} else {
+				console.log('You can not drive');
+			}
+			//The code inside the {} is called the branches
+
+			//We can have more than one condition with else if statements
+			if (15 >= 16) {
+				console.log('You can drive');
+				console.log('Congrats');
+			} else if (15 >= 14) {
+				console.log('Almost there!');
+			} else {
+				console.log('You can not drive');
+			}
+
+			//We can use variables inside if-statements
+			const age = 15;
+
+			if (age >= 16) {
+				console.log('You can drive');
+				console.log('Congrats');
+			} else if (age >= 14) {
+				console.log('Almost there!');
+			} else {
+				console.log('You can not drive');
+			}
+
+			//Logical operators (&&, ||, ) let you combine boolean values in you if statements
+			// && this is the and operator and lets you see if both values are true before passing the code
+			//Logical operators have an even lower order of operation than both comparison operators and mathematical operators
+			console.log(true && true);
+			console.log(true && false);
+			console.log(0.2 >= 0 && 0.2 < 1 / 3);
+
+			//|| this is the or operator found under the backspace it checks if either of the values is true before passing the code
+			console.log(true || false);
+
+			//! this is the not operator and flips the value so if false is taken the code will run while true will either execute the else statement or not run if there isnt one
+			console.log(!false);
+
+			//the branches of code are in whats called a scope, scopes help us avoid naming conflicts within variables because any variable that is declared within a scope can only be used inside of said scope
+
+			//Truthy and Falsey values. if statements dont just work with boolean values, but can work with any value ex. numbers or strings.
+			if (0) {
+				console.log('truthy');
+			}
+
+			//In JS falsy values are 'false, 0, ''(empty string), Nan, undefined, null'
+			//Any value not in this list is a truthy value
+
+			const cartQuantity = 5;
+
+			if (cartQuantity) {
+				console.log('cart has products');
+			}
+
+			console.log(!0);
+
+			//NaN (Not a Number) is given when you do invalid math
+			console.log('text' / 5);
+
+			//Undefined represents variables that dosent have a value
+			let variable1;
+			console.log(variable1);
+			// You cant have undefined with const, if you really want the const to be undefined youll have to const var1 = undefined;
+
+			//Ternary Operators ?:
+			true ? 'truthy' : 'falsy';
+			//This is a shortcut to doif statements
+			/*if (true) { 
+          'truthy';
+        } else { 
+          'falsy';
+        }*/
+			//We can save ternary operators in variables
+			const result = 0 ? 'truthy' : 'falsy';
+			console.log(result);
+			//This is a shortcut for the result of if-statements into variables
+			/*let result = '';
+      
+        if (condition) {
+          result = 'truthy';
+        } else {
+          result = 'falsy';*/
+			//Guard operators && wont pass the code on the right if the first value is false
+			false && console.log('hello');
+			/*if (condition) {
+        console.log('hello');
+      }*/
+
+			const message = 5 && 'hello';
+			console.log(message);
+			/*let message = "";
+      
+      if (condition) {
+        message = 'hello';
+      }*/
+			//Default operator || wont pass the code on the right if the first value is true
+			const currency = undefined || 'USD';
+			console.log(currency);
+			/*let currency = "";
+
+        if (!condition) {
+          currency = 'USD';
+        }*/
+		</script>
+	</body>
+</html>
